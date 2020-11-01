@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 const String imagePath = "assets/images/";
 
 const String eCommerceAppImagePath = imagePath + "e_commerce_app/";
@@ -12,12 +10,12 @@ const String eCommerceAppHome =
     eCommerceAppImagePath + "e_commerce_app_home.PNG";
 const String designCourseAppHome =
     designCourseAppImagePath + "design_course_app_home.png";
-const String fitnessAppHome = fitnessAppImagePath + "fitness_app.png";
-const String foodAppHome = foodAppImagePath + "food_app_home.PNG";
+const String fitnessAppHome = fitnessAppImagePath + "fitness_app_home.png";
+const String foodAppHome = foodAppImagePath + "food_app_home.png";
 const String hotelAppHome = hotelAppImagePath + "hotel_app_home.png";
 
 ///Food App
-const String _root_folder = imagePath + "food_app/";
+const String _root_folder = foodAppImagePath;
 const String kCm1 = _root_folder + "cm1.jpeg";
 const String kCm2 = _root_folder + "cm2.jpeg";
 const String kCm3 = _root_folder + "cm3.jpeg";
