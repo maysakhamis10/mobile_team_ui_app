@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_team_ui_app/food_app/view/home_screen.dart';
 
 class FoodAppMainScreen extends StatefulWidget {
   @override
@@ -56,11 +57,11 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: Container(),
+        body: HomeScreen(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Icon(Icons.add),
@@ -73,7 +74,7 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
           icons: _bottomNavIcons,
           activeIndex: _bottomNavIndex,
           gapLocation: GapLocation.center,
-          notchSmoothness: NotchSmoothness.softEdge,
+          notchSmoothness: NotchSmoothness.defaultEdge,
           onTap: (index) => setState(() => _bottomNavIndex = index),
         ),
       ),
