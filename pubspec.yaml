@@ -43,6 +43,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/e_commerce_app/e_commerce_app_home.PNG
+    - assets/images/design_course/design_course_app_home.png
+    - assets/images/fitness_app/fitness_app_home.png
+    - assets/images/food_app/food_app_home.PNG
+    - assets/images/hotel/hotel_app_home.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -60,17 +67,30 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: Roboto_Medium
+      fonts:
+        - asset: assets/fonts/Roboto-Medium.ttf
+    - family: Roboto_Bold
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+    - family: WorkSans-Bold
+      fonts:
+        - asset: assets/fonts/WorkSans-Bold.ttf
+    - family: WorkSans-Bold
+      fonts:
+        - asset: assets/fonts/WorkSans-Bold.ttf
+    - family: WorkSans-Medium
+      fonts:
+        - asset: assets/fonts/WorkSans-Medium.ttf
+    - family: WorkSans-Regular
+      fonts:
+        - asset: assets/fonts/WorkSans-Regular.ttf
+    - family: WorkSans-SemiBold
+      fonts:
+        - asset: assets/fonts/WorkSans-SemiBold.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
