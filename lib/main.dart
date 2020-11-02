@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/view/food_app_main_screen.dart';
+import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
 
 void main() {

@@ -1,56 +1,23 @@
-List restaurants = [
-  {
-    "img": "assets/food1.jpeg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food2.jpeg",
-    "title": "Uncle Boons",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food3.jpeg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food4.jpeg",
-    "title": "Uncle Boons",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food5.jpeg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food6.jpeg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food7.jpeg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food8.jpeg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
-  },
-  {
-    "img": "assets/food9.jpeg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "4.5"
+import 'package:mobile_team_ui_app/resources/images.dart';
+
+class RestaurantsModel {
+  String image;
+  String title;
+  String address;
+  int rating;
+
+  RestaurantsModel({
+    this.image,
+    this.title,
+    this.address,
+    this.rating,
+});
+
+  RestaurantsModel.fromMap(Map<String,dynamic> map){
+    this.image = map["img"];
+    this.title = map["title"];
+    this.address = map["address"];
+    this.rating = map["rating"];
   }
-];
+
+}

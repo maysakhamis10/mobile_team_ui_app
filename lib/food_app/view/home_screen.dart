@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/resources/images.dart';
 
 class HomeScreen extends StatelessWidget {
   String kTrending = "Trending Restaurants";
@@ -7,8 +6,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [],
+    return ListView.builder(
+      itemCount: 2,
+      itemBuilder: (context, index) {
+        return _itemWidget(
+          title: kTrending,
+          child: _trendingRestaurantsCard(
+              title: null, subTitle: null, image: null),
+        );
+      },
     );
   }
 
@@ -35,8 +41,7 @@ class HomeScreen extends StatelessWidget {
     @required String image,
   }) {
     return Card(
-      shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Column(
         children: [
           Expanded(
@@ -49,11 +54,14 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: Column(
-              children: [
-                Text(title),
-                Text(subTitle),
-              ],
+            child: Container(
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Text(title),
+                  Text(subTitle),
+                ],
+              ),
             ),
           ),
         ],
