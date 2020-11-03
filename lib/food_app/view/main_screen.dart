@@ -1,6 +1,11 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/view/home_screen.dart';
+import 'package:mobile_team_ui_app/food_app/custom_widgets/search_bar.dart';
+import 'package:mobile_team_ui_app/food_app/model/categories.dart';
+import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
+import 'package:mobile_team_ui_app/food_app/presenter/presenter.dart';
+import 'package:mobile_team_ui_app/food_app/view/home_body.dart';
+import 'package:mobile_team_ui_app/food_app/view/view.dart';
 
 class FoodAppMainScreen extends StatefulWidget {
   @override
@@ -8,11 +13,15 @@ class FoodAppMainScreen extends StatefulWidget {
 }
 
 class _FoodAppMainScreenState extends State<FoodAppMainScreen>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin
+    implements FoodAppView {
+  FoodAppPresenter presenter;
+  List<CategoryModel> categories = [];
+  List<String> friends = [];
+  List<RestaurantsModel> restaurants = [];
   AnimationController _animationController;
   Animation<double> animation;
   CurvedAnimation curve;
-
   int _bottomNavIndex = 0;
   List<IconData> _bottomNavIcons = [
     Icons.home,
@@ -22,8 +31,25 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
   ];
 
   @override
+  void getCategories(List<CategoryModel> categories) {
+    this.categories = categories;
+  }
+
+  @override
+  void getFriends(List<String> friends) {
+    this.friends = friends;
+  }
+
+  @override
+  void getRestaurants(List<RestaurantsModel> restaurants) {
+    this.restaurants = restaurants;
+  }
+
+  @override
   void initState() {
     super.initState();
+    presenter = FoodAppPresenter();
+    presenter.onCreate(this);
     _animationController = AnimationController(
       duration: Duration(seconds: 1),
       vsync: this,
@@ -61,7 +87,15 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: HomeScreen(),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: SearchBar(),
+        ),
+        body: HomeBody(
+          categories: this.categories,
+          friends: this.friends,
+          restaurants: this.restaurants,
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Icon(Icons.add),

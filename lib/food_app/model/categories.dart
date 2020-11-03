@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/resources/images.dart';
 
 class CategoryModel {
   String name;

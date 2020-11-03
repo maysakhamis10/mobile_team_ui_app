@@ -7,22 +7,34 @@ class FoodAppPresenter {
   FoodAppRepository repository;
   FoodAppView view;
 
-  List<CategoryModel> getCategories() {
+
+  void onCreate(FoodAppView view) {
+    repository = FoodAppRepository();
+    this.view = view;
+    _getCategories();
+    _getFriends();
+    _getRestaurants();
+  }
+
+  void _getCategories() {
     List<CategoryModel> categories = [];
     repository.categories.forEach((e) {
       CategoryModel model = CategoryModel.fromMap(e);
       categories.add(model);
     });
-    return categories;
+    view.getCategories(categories);
   }
 
-  List<String> getFriends() {
-    return repository.friends;
+  void _getFriends() {
+    view.getFriends(repository.friends);
   }
 
-  List<RestaurantsModel> getRestaurants(){
+  void _getRestaurants() {
+    List<RestaurantsModel> restaurants = [];
     repository.restaurants.forEach((e) {
-
+      RestaurantsModel model = RestaurantsModel.fromMap(e);
+      restaurants.add(model);
     });
+    view.getRestaurants(restaurants);
   }
 }

@@ -4,7 +4,7 @@ class RestaurantsModel {
   String image;
   String title;
   String address;
-  int rating;
+  double rating;
 
   RestaurantsModel({
     this.image,
@@ -17,7 +17,7 @@ class RestaurantsModel {
     this.image = map["img"];
     this.title = map["title"];
     this.address = map["address"];
-    this.rating = map["rating"];
+    this.rating = double.parse(map["rating"]);
   }
 
 }
