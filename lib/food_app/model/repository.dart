@@ -53,6 +53,7 @@ class FoodAppRepository {
       "title": "Happy Jones",
       "address": "1278 Loving Acres RoadKansas City, MO 64110",
       "rating": "4.5"
+
     },
     {
       "img": kFood2,

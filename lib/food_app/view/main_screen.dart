@@ -22,6 +22,7 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
   AnimationController _animationController;
   Animation<double> animation;
   CurvedAnimation curve;
+
   int _bottomNavIndex = 0;
   List<IconData> _bottomNavIcons = [
     Icons.home,
