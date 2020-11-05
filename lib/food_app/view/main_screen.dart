@@ -1,6 +1,5 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/custom_widgets/search_bar.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 import 'package:mobile_team_ui_app/food_app/presenter/presenter.dart';
