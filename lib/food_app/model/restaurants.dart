@@ -1,5 +1,3 @@
-import 'package:mobile_team_ui_app/resources/images.dart';
-
 class RestaurantsModel {
   String image;
   String title;

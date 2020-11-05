@@ -32,3 +32,5 @@ const String kFood9 = _root_folder + "food9.jpeg";
 const String kFood10 = _root_folder + "food10.jpeg";
 const String kFood11 = _root_folder + "food11.jpeg";
 const String kFood12 = _root_folder + "food12.jpg";
+const String kGiphy = _root_folder + "giphy.gif";
+const String kLocation = _root_folder + "location.gif";
