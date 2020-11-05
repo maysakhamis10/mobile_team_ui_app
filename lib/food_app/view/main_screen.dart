@@ -88,15 +88,18 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: SearchBar(),
-        ),
-        body: HomeBody(
-          categories: this.categories,
-          friends: this.friends,
-          restaurants: this.restaurants,
-        ),
+        body: Container(
+                   margin: EdgeInsets.all(5.0),
+                   child:
+
+                   HomeBody(
+
+
+                     categories: this.categories,
+                     friends: this.friends,
+                     restaurants: this.restaurants,
+                   ),
+         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Icon(Icons.add),

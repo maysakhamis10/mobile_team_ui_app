@@ -33,6 +33,12 @@ class FoodAppRepository {
       "color2": Color.fromARGB(100, 0, 0, 0),
       "img": kFood5,
     },
+    {
+      "name": "Egyptian",
+      "color1": Color.fromARGB(100, 0, 0, 0),
+      "color2": Color.fromARGB(100, 0, 0, 0),
+      "img": kFood6,
+    },
   ];
 
   List<String> friends = [

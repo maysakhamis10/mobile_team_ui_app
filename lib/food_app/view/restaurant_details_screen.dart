@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mobile_team_ui_app/food_app/constants/text_styles.dart';
+import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_strings.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 import 'package:mobile_team_ui_app/food_app/presenter/presenter.dart';
-import 'package:mobile_team_ui_app/food_app/view/restaurant_images_slider.dart';
+import 'file:///D:/android%20projects/mobile_team_ui_app/lib/food_app/custom_widgets/restaurant_images_slider.dart';
 import 'package:mobile_team_ui_app/food_app/view/view.dart';
 
-import 'category_list.dart';
+import '../custom_widgets/category_list.dart';
 
 // ignore: must_be_immutable
 class RestaurantDetailsScreen extends StatefulWidget {
@@ -28,6 +29,7 @@ class _RestaurantDetailsScreenState
 
   FoodAppPresenter presenter;
 
+  Size size;
 
   @override
   void initState() {
@@ -39,36 +41,54 @@ class _RestaurantDetailsScreenState
 
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child:
+              Text(kRestuarantDetails
+                , style: TextStyle(
+                    color: Colors.black
+                ),),
+        ),
+      ),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+      body:
+      SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            SizedBox(height: 5,),
             RestaurantImagesSlider(),
-            buildRestaurantTitle(),
+             buildRestaurantTitle(),
             buildRestaurantDesc(),
-            Expanded(child: CategoryListScreen(categories: categories)),
+            Container(
+              padding: const EdgeInsets.all(12),
+              height: size.height * 0.4,
+              child: CategoryListScreen(categories: categories),
+            ),
+            //SizedBox(height: 100,)
           ],
         ),
       ),
-      ),
-
     );
   }
 
   Widget buildRestaurantTitle(){
     return Container(
+        height: size.height*0.1,
         margin: EdgeInsets.only(left: 20 , right: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-          Text(widget.restaurantsModel.title,style: kSubTitleTextStyle,),
+          Text(widget.restaurantsModel.title,style: kTitleTextStyle,),
           Image.asset(
             "assets/images/food_app/giphy.gif",
-            width: 120,
-            height: 100,
+            width: size.width*0.2,
+            height: size.height*0.2,
           ),
           Text(widget.restaurantsModel.rating.toString(),style: TextStyle(color: Colors.black26),),
 
@@ -80,13 +100,15 @@ class _RestaurantDetailsScreenState
 
   }
 
-  Widget buildRestaurantDesc(){
+  Widget buildRestaurantDesc() {
     return Container(
-      margin: EdgeInsets.only(left: 20 , right: 20),
+      height: size.height*0.1,
+      margin: EdgeInsets.only(left: 20, right: 20),
       child: Row(
         children: <Widget>[
           Expanded(
-            child: Text(widget.restaurantsModel.address,style: kSubTitleTextStyle,),
+            child: Text(
+              widget.restaurantsModel.address, style: kSubTitleTextStyle,),
           ),
           Image.asset(
             "assets/images/food_app/location.gif",
@@ -95,16 +117,11 @@ class _RestaurantDetailsScreenState
         ],
       ),
     );
-
   }
-
-
-
 
   @override
   void getCategories(List<CategoryModel> categories) {
     this.categories = categories;
-
   }
 
   @override

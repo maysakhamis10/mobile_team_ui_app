@@ -17,27 +17,27 @@ class CategoryListScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      backgroundColor: Colors.white,
       body: AnimationLimiter(
-        child: GridView.count(
-          crossAxisCount: 3,
-          children: List.generate(
-            categories.length, (int index) {
-              return AnimationConfiguration.staggeredGrid(
-                position: index,
-                duration: const Duration(milliseconds: 400),
-                columnCount: 2,
-                child: ScaleAnimation(
-                  child: SlideAnimation(
-                    child: buildCatItem(categories[index]),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      ),
+       child: GridView.count(
+         crossAxisCount: 3,
+         children: List.generate(
+           categories.length, (int index) {
+           return AnimationConfiguration.staggeredGrid(
+             position: index,
+             duration: const Duration(milliseconds: 350),
+             columnCount: 2,
+             child: ScaleAnimation(
+               child: SlideAnimation(
+                 child: buildCatItem(categories[index]),
+               ),
+             ),
+           );
+         },
+         ),
+     ),
+   ),
     );
   }
 

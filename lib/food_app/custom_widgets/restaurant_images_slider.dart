@@ -27,13 +27,17 @@ class RestaurantImagesSlider extends StatelessWidget{
     var media = MediaQuery.of(context).size;
     return Container(
         width: media.width,
+        //height: media.height*0.8,
         child: CarouselSlider(
           items: imagesList.map((item) =>
               Container(
-                child: Center(
-                    child: Image.asset(item,
-                        fit: BoxFit.cover,
+                child:
+
+                Center(child: Image.asset(item,
+                        fit: BoxFit.fill,
                         width: media.width)
+
+
                 ),
               )).toList(),
           options: CarouselOptions(
