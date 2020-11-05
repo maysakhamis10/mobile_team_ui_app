@@ -13,12 +13,14 @@ dependencies:
 
   #Food App
   animated_bottom_navigation_bar: ^0.1.2+2
-
+  flutter_staggered_animations: "^0.1.2"
   cupertino_icons: ^0.1.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  carousel_slider: ^2.3.1
+
 
 flutter:
   uses-material-design: true

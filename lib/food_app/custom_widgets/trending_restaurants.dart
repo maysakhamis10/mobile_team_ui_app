@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/constants/strings.dart';
 import 'package:mobile_team_ui_app/food_app/constants/text_styles.dart';
+import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_strings.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
+import 'package:mobile_team_ui_app/food_app/view/restaurant_details_screen.dart';
 
 class TrendingRestaurants extends StatelessWidget {
   final List<RestaurantsModel> restaurants;
@@ -18,16 +19,23 @@ class TrendingRestaurants extends StatelessWidget {
       title: kTrending,
       widgetHeight: widgetHeight,
       child: ListView.builder(
+
+
         itemCount: restaurants.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return _trendingRestaurantsCard(
-            title: restaurants[index].title,
-            subTitle: restaurants[index].address,
-            image: restaurants[index].image,
-            cardWidth: cardWidth,
+          return GestureDetector(
+            onTap:()=> Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => RestaurantDetailsScreen(restaurants[index]))),
+            child:  _trendingRestaurantsCard(
+              title: restaurants[index].title,
+              subTitle: restaurants[index].address,
+              image: restaurants[index].image,
+              cardWidth: cardWidth,
+            ),
           );
-        },
+        }
+        ,
       ),
     );
   }
@@ -69,7 +77,8 @@ class TrendingRestaurants extends StatelessWidget {
     @required String image,
     @required double cardWidth,
   }) {
-    return Card(
+    return
+      Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       clipBehavior: Clip.antiAlias,
       child: FittedBox(

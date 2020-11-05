@@ -4,6 +4,8 @@ import 'package:mobile_team_ui_app/food_app/custom_widgets/trending_restaurants.
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 
+import 'category_list.dart';
+
 class HomeBody extends StatelessWidget {
   final List<CategoryModel> categories;
   final List<String> friends;
@@ -17,10 +19,11 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
         SearchBar(),
         TrendingRestaurants(restaurants: restaurants),
+        Expanded(child: CategoryListScreen(categories: categories)),
       ],
     );
   }

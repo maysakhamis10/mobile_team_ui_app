@@ -5,6 +5,7 @@ TextStyle kTitleTextStyle = TextStyle(
   fontSize: 24,
 );
 
+
 TextStyle kSubTitleTextStyle = TextStyle(
   fontFamily: "WorkSans-Regular",
   fontSize: 16,
