@@ -1,7 +1,9 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/constants/colors.dart';
-import 'package:mobile_team_ui_app/food_app/constants/themes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_bloc_food.dart';
+import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_change_event_food.dart';
+import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_change_state.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 import 'package:mobile_team_ui_app/food_app/presenter/presenter.dart';
@@ -9,9 +11,9 @@ import 'package:mobile_team_ui_app/food_app/view/home_body.dart';
 import 'package:mobile_team_ui_app/food_app/view/view.dart';
 
 class FoodAppMainScreen extends StatefulWidget {
-  final Function switchCallback;
+ /// final Function switchCallback;
 
-  FoodAppMainScreen(this.switchCallback);
+  FoodAppMainScreen();
 
   @override
   _FoodAppMainScreenState createState() => _FoodAppMainScreenState();
@@ -76,7 +78,7 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
 
     Future.delayed(
       Duration(seconds: 1),
-      () => _animationController.forward(),
+          () => _animationController.forward(),
     );
   }
 
@@ -97,23 +99,66 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
           restaurants: this.restaurants,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: kPrimaryColor,
-        onPressed: () {},
-        child: Switch(
-            value: isDark,
-            onChanged: (_) {
-              isDark = !isDark;
-              widget.switchCallback(isDark ? darkTheme : lightTheme);
-              setState(() {});
-            }),
+      appBar: AppBar(
+        elevation: 0.0,
+        title: Text("Food App "),
+        actions: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                "Light Mode",
+                style: TextStyle(fontSize: 12),
+              ),
+              BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(
+                builder: (context, state) {
+                  return Padding(
+                    padding: EdgeInsets.only(top: 0),
+                    child: Switch(
+                        value: state.themeState.isLightMode,
+                        onChanged: (value) =>
+                            BlocProvider.of<FoodThemeChangeBloc>(context)
+                                .add(FoodAppOnThemeChangedEvent(value))),
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
       ),
+//      floatingActionButton: FloatingActionButton(
+//        backgroundColor: kPrimaryColor,
+//        onPressed: () {},
+//        child: Switch(
+//            value: isDark,
+//            onChanged: (_) {
+//              BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(
+//                builder: (context, state) {
+//                  return Padding(
+//                    padding: EdgeInsets.only(top: 0),
+//                    child: Switch(
+//                        value: state.themeState.isLightMode,
+//                        onChanged: (value) =>
+//                            BlocProvider.of<FoodThemeChangeBloc>(context)
+//                                .add(FoodAppOnThemeChangedEvent(value))),
+//                  );
+//                },
+//              );
+//            }),
+//      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
-        activeColor: Theme.of(context).primaryColor,
-        splashColor: Theme.of(context).accentColor,
-        backgroundColor: Theme.of(context).backgroundColor,
-        inactiveColor: Theme.of(context).accentColor,
+        activeColor: Theme
+            .of(context)
+            .primaryColor,
+        splashColor: Theme
+            .of(context)
+            .accentColor,
+        backgroundColor: Theme
+            .of(context)
+            .backgroundColor,
+        inactiveColor: Theme
+            .of(context)
+            .accentColor,
         notchAndCornersAnimation: animation,
         icons: _bottomNavIcons,
         activeIndex: _bottomNavIndex,
