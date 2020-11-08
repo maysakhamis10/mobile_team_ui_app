@@ -9,12 +9,14 @@ import 'more_restaurants_screen.dart';
 class HomeBody extends StatelessWidget {
   final List<CategoryModel> categories;
   final List<String> friends;
+  final List<String> imagesList;
   final List<RestaurantsModel> restaurants;
 
   HomeBody({
     @required this.categories,
     @required this.friends,
     @required this.restaurants,
+    @required this.imagesList
   });
 
   @override
@@ -29,12 +31,12 @@ class HomeBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              buildTitle(context, kTrending),
-              buildRestaurantList(),
-              buildTitle(context, kCategory),
-              buildCategoryList(),
-              buildTitle(context, kFriends),
-              buildFriendsList(),
+              _buildTitle(context, kTrending),
+              _buildRestaurantList(),
+              _buildTitle(context, kCategory),
+              _buildCategoryList(),
+              _buildTitle(context, kFriends),
+              _buildFriendsList(),
 
             ],
           ),
@@ -43,7 +45,7 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget buildTitle(BuildContext context, String title) {
+  Widget _buildTitle(BuildContext context, String title) {
     return Padding(
       padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
       child: Row(
@@ -61,6 +63,7 @@ class HomeBody extends StatelessWidget {
                   builder: (context) => MoreRestaurantScreen(
                     restaurants: restaurants,
                     categories: categories,
+                    imagesList: imagesList,
                   ),
                 ),
               );
@@ -71,19 +74,20 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget buildRestaurantList() {
+  Widget _buildRestaurantList() {
     return TrendingRestaurants(
       restaurants: restaurants,
       categories: categories,
       fromHomePage: true,
+      imagesList: imagesList,
     );
   }
 
-  Widget buildCategoryList() {
+  Widget _buildCategoryList() {
     return CategoriesGrid(categories: categories);
   }
 
-  Widget buildFriendsList() {
+  Widget _buildFriendsList() {
     return FriendsGrid(friends: friends);
   }
 

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const String imagePath = "assets/images/";
 
 const String eCommerceAppImagePath = imagePath + "e_commerce_app/";
@@ -34,3 +36,9 @@ const String kFood11 = _root_folder + "food11.jpeg";
 const String kFood12 = _root_folder + "food12.jpg";
 const String kGiphy = _root_folder + "giphy.gif";
 const String kLocation = _root_folder + "location.gif";
+const List<IconData> iconsBottomList = [
+  Icons.home,
+  Icons.label,
+  Icons.notifications,
+  Icons.person,
+];

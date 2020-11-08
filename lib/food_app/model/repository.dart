@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
 
 class FoodAppRepository {
+
+
   List<Map<String, dynamic>> categories = [
     {
       "name": "Italian",
@@ -105,4 +107,20 @@ class FoodAppRepository {
       "rating": "4.5"
     }
   ];
+
+   List<String> imagesList = [
+    kFood1,
+    kFood2,
+    kFood3,
+    kFood4,
+    kFood5,
+    kFood6,
+    kFood7,
+    kFood8,
+    kFood9,
+    kFood10,
+    kFood11,
+    kFood12,
+  ];
+
 }

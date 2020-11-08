@@ -1,27 +1,28 @@
-part of 'custom_widgets.dart';
+part of '../custom_widgets/custom_widgets.dart';
 
 class TrendingRestaurants extends StatelessWidget {
   final List<RestaurantsModel> restaurants;
   final List<CategoryModel> categories;
   final bool fromHomePage;
+  final List<String> imagesList;
 
   TrendingRestaurants(
       {@required this.restaurants,
       @required this.fromHomePage,
-      @required this.categories});
+      @required this.categories,@required this.imagesList});
 
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
     double widgetHeight = deviceSize.height * 0.4;
     double cardWidth = deviceSize.width * 1.0;
-    return _itemWidget(
+    return _buildRestaurantItem(
         widgetHeight: fromHomePage ? widgetHeight : deviceSize.height,
-        child: buildHorizontalRestaurantList(cardWidth),
+        child: _buildHorizontalRestaurantList(cardWidth),
         context: context);
   }
 
-  Widget buildHorizontalRestaurantList(double cardWidth) {
+  Widget _buildHorizontalRestaurantList(double cardWidth) {
     return ListView.builder(
         itemCount: restaurants.length,
         scrollDirection: fromHomePage ? Axis.horizontal : Axis.vertical,
@@ -33,16 +34,18 @@ class TrendingRestaurants extends StatelessWidget {
                 builder: (context) => RestaurantDetailsScreen(
                   restaurant: restaurants[index],
                   categories: categories,
+                  imagesList: imagesList,
+
                 ),
               ),
             ),
-            child: _trendingRestaurantsCard(
+            child: _builldRestaurantsCard(
                 restaurant: restaurants[index], cardWidth: cardWidth),
           );
         });
   }
 
-  Widget _itemWidget(
+  Widget _buildRestaurantItem(
       {@required Widget child,
       @required double widgetHeight,
       BuildContext context}) {
@@ -59,7 +62,7 @@ class TrendingRestaurants extends StatelessWidget {
     );
   }
 
-  Widget _trendingRestaurantsCard(
+  Widget _builldRestaurantsCard(
       {@required RestaurantsModel restaurant, @required double cardWidth}) {
     String title = restaurant.title;
     String subTitle = restaurant.address;

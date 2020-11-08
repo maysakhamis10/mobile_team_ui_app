@@ -7,8 +7,10 @@ import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 class MoreRestaurantScreen extends StatelessWidget {
   final List<RestaurantsModel> restaurants;
   final List<CategoryModel> categories;
+  final List<String> imagesList;
 
-  MoreRestaurantScreen({@required this.restaurants, @required this.categories});
+  MoreRestaurantScreen({@required this.restaurants, @required this.categories
+  ,@required this.imagesList});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class MoreRestaurantScreen extends StatelessWidget {
               restaurants: restaurants,
               categories: categories,
               fromHomePage: false,
+              imagesList: imagesList,
             ),
           ],
         ),

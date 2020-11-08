@@ -1,27 +1,16 @@
-part of 'custom_widgets.dart';
+part of '../custom_widgets/custom_widgets.dart';
 
 class RestaurantImagesSlider extends StatelessWidget {
-  final List<String> imagesList = [
-    kFood1,
-    kFood2,
-    kFood3,
-    kFood4,
-    kFood5,
-    kFood6,
-    kFood7,
-    kFood8,
-    kFood9,
-    kFood10,
-    kFood11,
-    kFood12,
-  ];
+  final List<String> imagesList;
+
+  RestaurantImagesSlider({@required this.imagesList});
 
   @override
   Widget build(BuildContext context) {
+
     var media = MediaQuery.of(context).size;
     return Container(
       width: media.width,
-      //height: media.height*0.8,
       child: CarouselSlider(
         items: imagesList
             .map(
@@ -44,4 +33,15 @@ class RestaurantImagesSlider extends StatelessWidget {
       ),
     );
   }
+  Widget initOptionsOfSlider(){
+    CarouselOptions(
+      autoPlay: true,
+      pageSnapping: true,
+      disableCenter: false,
+      enableInfiniteScroll: true,
+      enlargeCenterPage: true,
+      aspectRatio: 2.0,
+    );
+  }
+
 }

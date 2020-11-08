@@ -12,8 +12,8 @@ part 'food_app_bar.dart';
 
 part 'categories_grid.dart';
 
-part 'restaurant_images_slider.dart';
+part '../view/restaurant_images_slider.dart';
 
 part 'search_bar.dart';
 
-part 'trending_restaurants.dart';
+part '../view/trending_restaurants.dart';

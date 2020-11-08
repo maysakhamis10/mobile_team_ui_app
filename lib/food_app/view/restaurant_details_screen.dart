@@ -9,9 +9,11 @@ import 'package:mobile_team_ui_app/resources/images.dart';
 class RestaurantDetailsScreen extends StatelessWidget {
   final RestaurantsModel restaurant;
   final List<CategoryModel> categories;
+  final List<String> imagesList;
+
 
   RestaurantDetailsScreen(
-      {@required this.restaurant, @required this.categories});
+      {@required this.restaurant, @required this.categories, @required this.imagesList});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,9 @@ class RestaurantDetailsScreen extends StatelessWidget {
             SizedBox(
               height: 5,
             ),
-            RestaurantImagesSlider(),
-            buildRestaurantTitle(size),
-            buildRestaurantDesc(size),
+            RestaurantImagesSlider(imagesList:  imagesList,),
+            _buildRestaurantTitle(size),
+            _buildRestaurantDesc(size),
             Container(
               padding: const EdgeInsets.all(12),
               height: size.height * 0.4,
@@ -40,7 +42,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget buildRestaurantTitle(Size size) {
+  Widget _buildRestaurantTitle(Size size) {
     return Container(
       height: size.height * 0.1,
       margin: EdgeInsets.only(left: 20, right: 20),
@@ -64,7 +66,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget buildRestaurantDesc(Size size) {
+  Widget _buildRestaurantDesc(Size size) {
     return Container(
       height: size.height * 0.1,
       margin: EdgeInsets.only(left: 20, right: 20),

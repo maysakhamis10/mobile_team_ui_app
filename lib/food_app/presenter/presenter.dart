@@ -14,6 +14,7 @@ class FoodAppPresenter {
     _getCategories();
     _getFriends();
     _getRestaurants();
+    _getImagesList();
   }
 
   void _getCategories() {
@@ -38,5 +39,8 @@ class FoodAppPresenter {
     view.getRestaurants(restaurants);
   }
 
+  void _getImagesList(){
+    view.getImages(repository.imagesList);
+  }
 
 }
