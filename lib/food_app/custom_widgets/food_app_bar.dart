@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 AppBar buildFoodAppBar(BuildContext context, String title) {
   return AppBar(
-    backgroundColor: Colors.white,
+   backgroundColor: Theme.of(context).backgroundColor,
     leading: IconButton(
         icon: Icon(Icons.arrow_back_ios, color: Colors.black),
         onPressed: () {

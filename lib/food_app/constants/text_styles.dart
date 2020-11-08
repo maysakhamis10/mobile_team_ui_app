@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_team_ui_app/food_app/constants/colors.dart';
 
 TextStyle kTitleTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
@@ -13,5 +14,5 @@ TextStyle kSubTitleTextStyle = TextStyle(
 
 TextStyle kClickableTextStyle = TextStyle(
   fontWeight: FontWeight.w700,
-  color: Colors.blueAccent,
+  color: kPrimaryColor,
 );
