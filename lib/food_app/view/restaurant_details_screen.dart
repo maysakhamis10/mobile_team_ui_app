@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_team_ui_app/food_app/constants/constants.dart';
 import 'package:mobile_team_ui_app/food_app/custom_widgets/custom_widgets.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
+import 'package:mobile_team_ui_app/food_app/view/theme_bloc/bloc.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
 
 class RestaurantDetailsScreen extends StatelessWidget {
@@ -11,9 +13,10 @@ class RestaurantDetailsScreen extends StatelessWidget {
   final List<CategoryModel> categories;
   final List<String> imagesList;
 
-
   RestaurantDetailsScreen(
-      {@required this.restaurant, @required this.categories, @required this.imagesList});
+      {@required this.restaurant,
+      @required this.categories,
+      @required this.imagesList});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,9 @@ class RestaurantDetailsScreen extends StatelessWidget {
             SizedBox(
               height: 5,
             ),
-            RestaurantImagesSlider(imagesList:  imagesList,),
+            RestaurantImagesSlider(
+              imagesList: imagesList,
+            ),
             _buildRestaurantTitle(size),
             _buildRestaurantDesc(size),
             Container(
@@ -78,9 +83,13 @@ class RestaurantDetailsScreen extends StatelessWidget {
               style: kSubTitleTextStyle,
             ),
           ),
-          Image.asset(
-            kLocation,
-            width: 100,
+          BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(
+            builder: (context, state) {
+              return Image.asset(
+                state.themeState.isLightMode ? kLocation : kLocationDark,
+                width: 100,
+              );
+            },
           ),
         ],
       ),

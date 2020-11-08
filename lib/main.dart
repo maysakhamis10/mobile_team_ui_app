@@ -9,10 +9,6 @@ import 'package:mobile_team_ui_app/food_app/view/theme_bloc/bloc.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
 
 
-import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
-import 'package:mobile_team_ui_app/resources/images.dart';
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
