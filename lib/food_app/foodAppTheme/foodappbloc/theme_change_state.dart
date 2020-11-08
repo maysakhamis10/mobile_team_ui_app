@@ -3,6 +3,7 @@ import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_state
 
 abstract class FoodThemeChangeState extends Equatable {
   final ThemeStateFood themeState;
+
   FoodThemeChangeState(this.themeState);
 
   @override
@@ -11,10 +12,12 @@ abstract class FoodThemeChangeState extends Equatable {
 
 class LightThemeState extends FoodThemeChangeState {
   static final state = ThemeStateFood.light();
+
   LightThemeState() : super(state);
 }
 
 class DarkThemeState extends FoodThemeChangeState {
   static final state = ThemeStateFood.dark();
+
   DarkThemeState() : super(state);
 }

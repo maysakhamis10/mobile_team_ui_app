@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/constants/strings.dart';
+import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
 
 class SearchBar extends StatelessWidget {
   @override
@@ -19,6 +19,9 @@ class SearchBar extends StatelessWidget {
           ]),
       child: Center(
         child: TextField(
+          style: TextStyle(
+            color: Colors.black,
+          ),
           decoration: new InputDecoration(
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
@@ -27,9 +30,10 @@ class SearchBar extends StatelessWidget {
             focusedBorder: InputBorder.none,
             contentPadding:
                 EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-            prefixIcon: Icon(Icons.search),
-            suffixIcon: Icon(Icons.filter_list),
-            labelText: kSearch,
+            prefixIcon: Icon(Icons.search, color: Colors.black),
+            suffixIcon: Icon(Icons.filter_list, color: Colors.black),
+            hintText: kSearch,
+            hintStyle: TextStyle(color: Colors.black),
           ),
         ),
       ),

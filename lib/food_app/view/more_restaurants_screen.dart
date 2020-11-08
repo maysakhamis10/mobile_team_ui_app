@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/constants/strings.dart';
 import 'package:mobile_team_ui_app/food_app/custom_widgets/food_app_bar.dart';
 import 'package:mobile_team_ui_app/food_app/custom_widgets/search_bar.dart';
 import 'package:mobile_team_ui_app/food_app/custom_widgets/trending_restaurants.dart';
+import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 

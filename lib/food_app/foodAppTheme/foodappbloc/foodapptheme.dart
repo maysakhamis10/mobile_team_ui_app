@@ -1,28 +1,26 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
-const Color primaryColor = Colors.black;
-const Color secondaryColor = Colors.yellow;
+import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
 
 final ThemeData lightTheme = _buildLightTheme();
 final ThemeData darkTheme = _buildDarkTheme();
+
 ThemeData _buildLightTheme() {
   final ColorScheme colorScheme = const ColorScheme.light().copyWith(
-    primary: primaryColor,
-    secondary: secondaryColor,
+    primary: kPrimaryColor,
+    secondary: kAccentColor,
   );
   final ThemeData base = ThemeData(
     brightness: Brightness.light,
     accentColorBrightness: Brightness.dark,
     colorScheme: colorScheme,
-    primaryColor: primaryColor,
-    buttonColor: primaryColor,
+    primaryColor: kPrimaryColor,
+    buttonColor: kPrimaryColor,
     indicatorColor: Colors.white,
-    toggleableActiveColor: secondaryColor,
+    toggleableActiveColor: kAccentColor,
+    cardColor: Colors.white,
     splashColor: Colors.white24,
-    splashFactory: InkRipple.splashFactory,
-    accentColor: secondaryColor,
+    accentColor: kAccentColor,
     canvasColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     backgroundColor: Colors.white,
@@ -37,20 +35,20 @@ ThemeData _buildLightTheme() {
 
 ThemeData _buildDarkTheme() {
   final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
-    primary: primaryColor,
-    secondary: secondaryColor,
+    primary: kPrimaryColor,
+    secondary: kAccentColor,
   );
   final ThemeData base = ThemeData(
     brightness: Brightness.dark,
     accentColorBrightness: Brightness.dark,
-    primaryColor: primaryColor,
-    cardColor: Color(0xFF121A26),
+    primaryColor: kPrimaryColor,
+    cardColor: kCardColor,
     primaryColorDark: const Color(0xFF0050a0),
-    primaryColorLight: secondaryColor,
-    buttonColor: primaryColor,
+    primaryColorLight: kAccentColor,
+    buttonColor: kPrimaryColor,
     indicatorColor: Colors.white,
-    toggleableActiveColor: secondaryColor,
-    accentColor: secondaryColor,
+    toggleableActiveColor: kAccentColor,
+    accentColor: kAccentColor,
     canvasColor: const Color(0xFF2A4058),
     scaffoldBackgroundColor: const Color(0xFF121A26),
     backgroundColor: const Color(0xFF0D1520),

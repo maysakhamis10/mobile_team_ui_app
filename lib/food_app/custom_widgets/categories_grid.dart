@@ -57,6 +57,9 @@ class CategoriesGrid extends StatelessWidget {
             ),
             Container(
                 alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.black45,
+                ),
                 child: Text(
                   singleItem.name,
                   style: TextStyle(

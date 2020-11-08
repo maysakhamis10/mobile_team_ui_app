@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/constants/text_styles.dart';
+import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 import 'package:mobile_team_ui_app/food_app/view/restaurant_details_screen.dart';

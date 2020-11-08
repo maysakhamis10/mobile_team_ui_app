@@ -3,10 +3,11 @@ import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_chang
 
 import 'theme_change_event_food.dart';
 
-class FoodThemeChangeBloc extends HydratedBloc<FoodAppThemeChangeEvent, FoodThemeChangeState> {
-
+class FoodThemeChangeBloc
+    extends HydratedBloc<FoodAppThemeChangeEvent, FoodThemeChangeState> {
   @override
-  FoodThemeChangeState get initialState => super.initialState ?? LightThemeState();
+  FoodThemeChangeState get initialState =>
+      super.initialState ?? LightThemeState();
 
   @override
   FoodThemeChangeState fromJson(Map<String, dynamic> json) {
@@ -24,7 +25,8 @@ class FoodThemeChangeBloc extends HydratedBloc<FoodAppThemeChangeEvent, FoodThem
   }
 
   @override
-  Stream<FoodThemeChangeState> mapEventToState(FoodAppThemeChangeEvent event) async* {
+  Stream<FoodThemeChangeState> mapEventToState(
+      FoodAppThemeChangeEvent event) async* {
     if (event is FoodAppOnThemeChangedEvent) {
       yield* _onChangedTheme(event.lightMode);
     }

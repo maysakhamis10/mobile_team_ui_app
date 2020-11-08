@@ -11,10 +11,6 @@ import 'package:mobile_team_ui_app/food_app/view/home_body.dart';
 import 'package:mobile_team_ui_app/food_app/view/view.dart';
 
 class FoodAppMainScreen extends StatefulWidget {
- /// final Function switchCallback;
-
-  FoodAppMainScreen();
-
   @override
   _FoodAppMainScreenState createState() => _FoodAppMainScreenState();
 }
@@ -78,7 +74,7 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
 
     Future.delayed(
       Duration(seconds: 1),
-          () => _animationController.forward(),
+      () => _animationController.forward(),
     );
   }
 
@@ -114,10 +110,12 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
                   return Padding(
                     padding: EdgeInsets.only(top: 0),
                     child: Switch(
-                        value: state.themeState.isLightMode,
-                        onChanged: (value) =>
-                            BlocProvider.of<FoodThemeChangeBloc>(context)
-                                .add(FoodAppOnThemeChangedEvent(value))),
+                      value: state.themeState.isLightMode,
+                      onChanged: (value) =>
+                          BlocProvider.of<FoodThemeChangeBloc>(context).add(
+                        FoodAppOnThemeChangedEvent(value),
+                      ),
+                    ),
                   );
                 },
               ),
@@ -125,40 +123,17 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
           ),
         ],
       ),
-//      floatingActionButton: FloatingActionButton(
-//        backgroundColor: kPrimaryColor,
-//        onPressed: () {},
-//        child: Switch(
-//            value: isDark,
-//            onChanged: (_) {
-//              BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(
-//                builder: (context, state) {
-//                  return Padding(
-//                    padding: EdgeInsets.only(top: 0),
-//                    child: Switch(
-//                        value: state.themeState.isLightMode,
-//                        onChanged: (value) =>
-//                            BlocProvider.of<FoodThemeChangeBloc>(context)
-//                                .add(FoodAppOnThemeChangedEvent(value))),
-//                  );
-//                },
-//              );
-//            }),
-//      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
+        onPressed: () {},
+        child: Icon(Icons.add, color: Colors.white),
+      ),
       bottomNavigationBar: AnimatedBottomNavigationBar(
-        activeColor: Theme
-            .of(context)
-            .primaryColor,
-        splashColor: Theme
-            .of(context)
-            .accentColor,
-        backgroundColor: Theme
-            .of(context)
-            .backgroundColor,
-        inactiveColor: Theme
-            .of(context)
-            .accentColor,
+        activeColor: Theme.of(context).primaryColor,
+        inactiveColor: Theme.of(context).unselectedWidgetColor,
+        backgroundColor: Theme.of(context).backgroundColor,
+        elevation: 20,
         notchAndCornersAnimation: animation,
         icons: _bottomNavIcons,
         activeIndex: _bottomNavIndex,

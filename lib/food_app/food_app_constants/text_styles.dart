@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/constants/colors.dart';
+part of 'food_app_constants.dart';
 
 TextStyle kTitleTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 24,
 );
-
 
 TextStyle kSubTitleTextStyle = TextStyle(
   fontFamily: "WorkSans-Regular",

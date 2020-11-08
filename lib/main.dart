@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:mobile_team_ui_app/food_app/constants/themes.dart';
 import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
-
 import 'food_app/foodAppTheme/foodappbloc/foodapptheme.dart';
 import 'food_app/foodAppTheme/foodappbloc/theme_bloc_food.dart';
 import 'food_app/foodAppTheme/foodappbloc/theme_change_state.dart';
@@ -18,18 +16,9 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FoodThemeChangeBloc>(
-      create: (_) => FoodThemeChangeBloc(),
-      child: BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(
-          builder: (context, state) {
-            return MaterialApp(
-             title: 'best_flutter_ui_templates',
-              themeMode: state.themeState.themeMode,
-              darkTheme: darkTheme,
-              theme: lightTheme,
-              home: MyHomePage (title: 'Flutter UI'),
-            );
-          }),
+    return MaterialApp(
+      title: 'best_flutter_ui_templates',
+      home: MyHomePage(title: 'Flutter UI'),
     );
   }
 }
@@ -44,7 +33,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> homeModels = new List();
-  //ThemeData foodAppTheme = lightTheme;
 
   @override
   void initState() {
@@ -54,8 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return
-      Scaffold(
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         centerTitle: true,
@@ -93,13 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
       homeModel,
     );
   }
-//
-//  void switchCallback(ThemeData theme){
-//    setState(() {
-//      foodAppTheme = theme;
-//    });
-//
-//  }
 
   void goToApp(int index) {
     Widget screen;
@@ -111,16 +91,19 @@ class _MyHomePageState extends State<MyHomePage> {
       case 2:
         break;
       case 3:
-        screen = FoodAppMainScreen();
-//        screen=BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(
-//            builder: (context, state) {
-//              return MaterialApp(
-//                themeMode: state.themeState.themeMode,
-//                darkTheme: darkTheme,
-//                theme: lightTheme,
-//                home: FoodAppMainScreen (),
-//              );
-//            });
+        screen = BlocProvider<FoodThemeChangeBloc>(
+          create: (_) => FoodThemeChangeBloc(),
+          child: BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(
+            builder: (context, state) {
+              return MaterialApp(
+                themeMode: state.themeState.themeMode,
+                darkTheme: darkTheme,
+                theme: lightTheme,
+                home: FoodAppMainScreen(),
+              );
+            },
+          ),
+        );
         break;
       case 4:
         break;
@@ -129,7 +112,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     if (screen != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => screen,
+        ),
+      );
     }
   }
 }
