@@ -10,7 +10,7 @@ class FriendsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12),
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: MediaQuery.of(context).size.height * 0.3,
       child: AnimationLimiter(
         child: GridView.count(
           physics: NeverScrollableScrollPhysics(),
