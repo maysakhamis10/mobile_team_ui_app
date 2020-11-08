@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:mobile_team_ui_app/food_app/model/categories.dart';
+part of 'custom_widgets.dart';
 
 class CategoriesGrid extends StatelessWidget {
   final List<CategoryModel> categories;

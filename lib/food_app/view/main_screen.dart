@@ -1,13 +1,11 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_bloc_food.dart';
-import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_change_event_food.dart';
-import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_change_state.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 import 'package:mobile_team_ui_app/food_app/presenter/presenter.dart';
 import 'package:mobile_team_ui_app/food_app/view/home_body.dart';
+import 'package:mobile_team_ui_app/food_app/view/theme_bloc/bloc.dart';
 import 'package:mobile_team_ui_app/food_app/view/view.dart';
 
 class FoodAppMainScreen extends StatefulWidget {

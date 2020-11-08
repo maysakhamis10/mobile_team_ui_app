@@ -1,4 +1,4 @@
-part of 'food_app_constants.dart';
+part of 'constants.dart';
 
 const String kTrending = "Trending Restaurants";
 const String kSeeAll = "See All";

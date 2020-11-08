@@ -1,6 +1,4 @@
-import 'dart:ui';
-import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
+part of 'bloc.dart';
 
 final ThemeData lightTheme = _buildLightTheme();
 final ThemeData darkTheme = _buildDarkTheme();

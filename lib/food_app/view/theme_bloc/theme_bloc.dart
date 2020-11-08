@@ -1,7 +1,4 @@
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_change_state.dart';
-
-import 'theme_change_event_food.dart';
+part of 'bloc.dart';
 
 class FoodThemeChangeBloc
     extends HydratedBloc<FoodAppThemeChangeEvent, FoodThemeChangeState> {

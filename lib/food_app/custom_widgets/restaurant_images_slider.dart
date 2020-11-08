@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:mobile_team_ui_app/resources/images.dart';
+part of 'custom_widgets.dart';
 
 class RestaurantImagesSlider extends StatelessWidget {
   final List<String> imagesList = [

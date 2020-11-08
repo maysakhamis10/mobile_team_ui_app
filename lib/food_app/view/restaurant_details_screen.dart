@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:mobile_team_ui_app/food_app/custom_widgets/food_app_bar.dart';
-import 'package:mobile_team_ui_app/food_app/custom_widgets/restaurant_images_slider.dart';
-import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
+import 'package:mobile_team_ui_app/food_app/constants/constants.dart';
+import 'package:mobile_team_ui_app/food_app/custom_widgets/custom_widgets.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
-import '../custom_widgets/categories_grid.dart';
 
 class RestaurantDetailsScreen extends StatelessWidget {
   final RestaurantsModel restaurant;

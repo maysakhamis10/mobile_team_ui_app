@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
-import 'package:mobile_team_ui_app/food_app/model/categories.dart';
-import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
-import 'package:mobile_team_ui_app/food_app/view/restaurant_details_screen.dart';
+part of 'custom_widgets.dart';
 
 class TrendingRestaurants extends StatelessWidget {
   final List<RestaurantsModel> restaurants;

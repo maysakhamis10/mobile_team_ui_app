@@ -1,5 +1,5 @@
-import 'package:equatable/equatable.dart';
-import 'package:mobile_team_ui_app/food_app/foodAppTheme/foodappbloc/theme_state_food.dart';
+part of 'bloc.dart';
+
 
 abstract class FoodThemeChangeState extends Equatable {
   final ThemeStateFood themeState;
