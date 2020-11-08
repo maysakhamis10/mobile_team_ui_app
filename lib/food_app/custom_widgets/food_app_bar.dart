@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'custom_widgets.dart';
 
 AppBar buildFoodAppBar(BuildContext context, String title) {
   return AppBar(

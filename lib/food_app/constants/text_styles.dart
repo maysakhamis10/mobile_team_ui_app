@@ -1,4 +1,4 @@
-part of 'food_app_constants.dart';
+part of 'constants.dart';
 
 TextStyle kTitleTextStyle = TextStyle(
   fontWeight: FontWeight.bold,

@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+part of 'bloc.dart';
 
 class ThemeStateFood extends Equatable {
   final bool isLightMode;
