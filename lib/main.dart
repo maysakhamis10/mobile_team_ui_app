@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_team_ui_app/food_app/constants/themes.dart';
 import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
 
@@ -30,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> homeModels = new List();
+  ThemeData foodAppTheme = lightTheme;
 
   @override
   void initState() {
@@ -78,6 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void switchCallback(ThemeData theme){
+    setState(() {
+      foodAppTheme = theme;
+    });
+
+  }
+
   void goToApp(int index) {
     Widget screen;
     switch (index) {
@@ -88,7 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
       case 2:
         break;
       case 3:
-        screen = FoodAppMainScreen();
+        screen = MaterialApp(
+          theme: foodAppTheme,
+          home: FoodAppMainScreen(switchCallback),
+        );
         break;
       case 4:
         break;

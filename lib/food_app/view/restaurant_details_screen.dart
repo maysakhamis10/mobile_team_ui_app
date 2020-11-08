@@ -21,7 +21,6 @@ class RestaurantDetailsScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: buildFoodAppBar(context, kRestaurantDetails),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -62,7 +61,6 @@ class RestaurantDetailsScreen extends StatelessWidget {
           ),
           Text(
             restaurant.rating.toString(),
-            style: TextStyle(color: Colors.black26),
           ),
         ],
       ),

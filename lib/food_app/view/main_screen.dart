@@ -1,5 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_team_ui_app/food_app/constants/colors.dart';
+import 'package:mobile_team_ui_app/food_app/constants/themes.dart';
 import 'package:mobile_team_ui_app/food_app/model/categories.dart';
 import 'package:mobile_team_ui_app/food_app/model/restaurants.dart';
 import 'package:mobile_team_ui_app/food_app/presenter/presenter.dart';
@@ -7,6 +9,10 @@ import 'package:mobile_team_ui_app/food_app/view/home_body.dart';
 import 'package:mobile_team_ui_app/food_app/view/view.dart';
 
 class FoodAppMainScreen extends StatefulWidget {
+  final Function switchCallback;
+
+  FoodAppMainScreen(this.switchCallback);
+
   @override
   _FoodAppMainScreenState createState() => _FoodAppMainScreenState();
 }
@@ -21,6 +27,7 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
   AnimationController _animationController;
   Animation<double> animation;
   CurvedAnimation curve;
+  bool isDark = false;
 
   int _bottomNavIndex = 0;
   List<IconData> _bottomNavIcons = [
@@ -81,39 +88,38 @@ class _FoodAppMainScreenState extends State<FoodAppMainScreen>
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primarySwatch: Colors.blue,
+    return Scaffold(
+      body: Container(
+        margin: EdgeInsets.all(5.0),
+        child: HomeBody(
+          categories: this.categories,
+          friends: this.friends,
+          restaurants: this.restaurants,
+        ),
       ),
-      home: Scaffold(
-        body: Container(
-                   margin: EdgeInsets.all(5.0),
-                   child:
-
-                   HomeBody(
-
-
-                     categories: this.categories,
-                     friends: this.friends,
-                     restaurants: this.restaurants,
-                   ),
-         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: AnimatedBottomNavigationBar(
-          activeColor: Theme.of(context).primaryColor,
-          splashColor: Theme.of(context).accentColor,
-          notchAndCornersAnimation: animation,
-          icons: _bottomNavIcons,
-          activeIndex: _bottomNavIndex,
-          gapLocation: GapLocation.center,
-          notchSmoothness: NotchSmoothness.defaultEdge,
-          onTap: (index) => setState(() => _bottomNavIndex = index),
-        ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: kPrimaryColor,
+        onPressed: () {},
+        child: Switch(
+            value: isDark,
+            onChanged: (_) {
+              isDark = !isDark;
+              widget.switchCallback(isDark ? darkTheme : lightTheme);
+              setState(() {});
+            }),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        activeColor: Theme.of(context).primaryColor,
+        splashColor: Theme.of(context).accentColor,
+        backgroundColor: Theme.of(context).backgroundColor,
+        inactiveColor: Theme.of(context).accentColor,
+        notchAndCornersAnimation: animation,
+        icons: _bottomNavIcons,
+        activeIndex: _bottomNavIndex,
+        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.defaultEdge,
+        onTap: (index) => setState(() => _bottomNavIndex = index),
       ),
     );
   }

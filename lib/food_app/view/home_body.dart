@@ -23,7 +23,6 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
           child: SearchBar(),
