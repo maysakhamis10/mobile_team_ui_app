@@ -46,11 +46,6 @@ class FoodAppRepository {
     kCm2,
     kCm3,
     kCm4,
-    kCm1,
-    kCm2,
-    kCm3,
-    kCm4,
-    kCm1,
   ];
 
   List<Map<String, dynamic>> restaurants = [

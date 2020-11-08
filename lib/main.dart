@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
+
+
 import 'package:mobile_team_ui_app/resources/images.dart';
 import 'food_app/foodAppTheme/foodappbloc/foodapptheme.dart';
 import 'food_app/foodAppTheme/foodappbloc/theme_bloc_food.dart';
 import 'food_app/foodAppTheme/foodappbloc/theme_change_state.dart';
+
+
+import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
+import 'package:mobile_team_ui_app/resources/images.dart';
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -91,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 2:
         break;
       case 3:
+        screen = FoodAppMainScreen();
         screen = BlocProvider<FoodThemeChangeBloc>(
           create: (_) => FoodThemeChangeBloc(),
           child: BlocBuilder<FoodThemeChangeBloc, FoodThemeChangeState>(

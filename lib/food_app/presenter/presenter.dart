@@ -37,4 +37,6 @@ class FoodAppPresenter {
     });
     view.getRestaurants(restaurants);
   }
+
+
 }

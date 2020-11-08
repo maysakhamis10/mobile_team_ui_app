@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_team_ui_app/food_app/custom_widgets/friends_grid.dart';
 import 'package:mobile_team_ui_app/food_app/custom_widgets/search_bar.dart';
 import 'package:mobile_team_ui_app/food_app/custom_widgets/trending_restaurants.dart';
 import 'package:mobile_team_ui_app/food_app/food_app_constants/food_app_constants.dart';
@@ -34,6 +35,9 @@ class HomeBody extends StatelessWidget {
               buildRestaurantList(),
               buildTitle(context, kCategory),
               buildCategoryList(),
+              buildTitle(context, kFriends),
+              buildFriendsList(),
+
             ],
           ),
         ),
@@ -80,4 +84,9 @@ class HomeBody extends StatelessWidget {
   Widget buildCategoryList() {
     return CategoriesGrid(categories: categories);
   }
+
+  Widget buildFriendsList() {
+    return FriendsGrid(friends: friends);
+  }
+
 }
