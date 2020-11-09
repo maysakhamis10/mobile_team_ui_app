@@ -36,6 +36,8 @@ const String kFood11 = _root_folder + "food11.jpeg";
 const String kFood12 = _root_folder + "food12.jpg";
 const String kGiphy = _root_folder + "giphy.gif";
 const String kLocation = _root_folder + "location.gif";
+const String kLocationDark = _root_folder + "location_dark.gif";
+
 const List<IconData> iconsBottomList = [
   Icons.home,
   Icons.label,
