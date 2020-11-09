@@ -1,4 +1,4 @@
-# mobile_team_ui_app
+# Flutter UI Sample
 
 A new Flutter application.
 
