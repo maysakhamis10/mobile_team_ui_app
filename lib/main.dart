@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,16 +9,16 @@ import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
 import 'package:mobile_team_ui_app/food_app/view/theme_bloc/bloc.dart';
 import 'package:mobile_team_ui_app/resources/images.dart';
 
-
-import 'package:mobile_team_ui_app/food_app/view/main_screen.dart';
-import 'package:mobile_team_ui_app/resources/images.dart';
-
+import 'package:device_preview/device_preview.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   BlocSupervisor.delegate = await HydratedBlocDelegate.build();
-  runApp(MyApp());
+  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  runApp(DevicePreview(
+    builder: (context) => MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

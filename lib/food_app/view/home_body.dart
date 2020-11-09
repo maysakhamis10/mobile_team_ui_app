@@ -46,31 +46,31 @@ class HomeBody extends StatelessWidget {
   }
 
   Widget _buildTitle(BuildContext context, String title) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Text('$title', style: kTitleTextStyle),
-          GestureDetector(
-            child: Text("$kSeeAll (${restaurants.length})",
-                style: kClickableTextStyle),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MoreRestaurantScreen(
-                    restaurants: restaurants,
-                    categories: categories,
-                    imagesList: imagesList,
+    return Container(
+        padding: const EdgeInsets.only(left: 12, right: 2, top: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('$title', style: kTitleTextStyle),
+            GestureDetector(
+              child: Text("$kSeeAll (${restaurants.length})",
+                  style: kClickableTextStyle),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MoreRestaurantScreen(
+                      restaurants: restaurants,
+                      categories: categories,
+                      imagesList: imagesList,
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
+                );
+              },
+            ),
+          ],
+        ),
     );
   }
 
